@@ -4,7 +4,14 @@ A simple library for serial port communication with Clojure.
 
 ## Installation
 
-The easiest way to to install serial-port is using cake. Cake has great support for native dependencies and serial-port makes use of RxTx which requires native libraries. With cake, you just need to add serial-port to your list of depenendencies in your project.clj and then run `cake deps`.
+The easiest way to to install serial-port is using cake. Cake has great support for native dependencies and serial-port makes use of RxTx which requires native libraries. With cake, you just need to add serial-port to your list of dependencies in your project.clj and then run `cake deps`
+
+    (defproject your-project "0.1.5"
+      :description "Your fabulous project that uses a serial connection"
+      :dependencies [[org.clojure/clojure "1.2.0"]
+                     [serial-port "1.0.7"]])
+
+Where `1.0.7` is replaced with the version you wish to use.
 
 ## Usage
 
@@ -37,7 +44,7 @@ When you know the path to the serial port, connecting is just as simple as:
 
 However, you'll want to bind the result so you can use it later:
 
-     (def port (open "/dev/tty.usbmodemfa141"))
+    (def port (open "/dev/tty.usbmodemfa141"))
 
 ### Reading bytes
 
@@ -74,6 +81,11 @@ There are a couple of convenience functions available if you're dealing with pla
 Simply use the `close` function:
 
     (close port)
+
+## Contributors
+
+* Sam Aaron
+* Jeff Rose
 
 ## License
 

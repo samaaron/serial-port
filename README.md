@@ -89,6 +89,6 @@ Simply use the `close` function:
 
 ## License
 
-Copyright (C) 2010 Sam Aaron
+Copyright (C) 2011 Sam Aaron
 
 Distributed under the Eclipse Public License, the same as Clojure.

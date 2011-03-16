@@ -67,7 +67,7 @@ It's also possible to register a handler for every n bytes. The monome communica
 
     (on-n-bytes port 2 (fn [[action coords]] ...))
 
-If you wish to get raw access to the `InputStream` this is possible with the function `listen`. This allows you to specify a handler that will get called every time there is data available on the port and will pass your handler the `InputStream` to allow you to directly `.read` bytes from it. Both `on-bytes` and `on-n-bytes` generate such handlers acting as a proxy between your specified handler and the incoming data events.
+If you wish to get raw access to the `InputStream` this is possible with the function `listen`. This allows you to specify a handler that will get called every time there is data available on the port and will pass your handler the `InputStream` to allow you to directly `.read` bytes from it. Both `on-byte` and `on-n-bytes` generate such handlers acting as a proxy between your specified handler and the incoming data events.
 
 When the handler is first registered, the bytes that have been buffered on the serial port are dropped by default. This can be changed by passing false to `on-byte`, `on-n-bytes` or `listen` as an optional last argument.
 

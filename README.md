@@ -1,29 +1,40 @@
 # serial-port
 
-A simple library for serial port communication with Clojure.
+A simple library for serial port communication with Clojure. Although serial communciation may be considered old tech, it's useful for a communicating with a plethora of devices including exciting new hardware such as the [Monome](http://monome.org) and the [Arduino](http://arduino.cc).
+
+## Dependencies
+
+`serial-port` has the following dependencies:
+
+* [Clojure 1.2](http://clojure.org)
+* [RxTx](http://rxtx.qbang.org) (jar and native binary for your OS and CPU architecture)
 
 ## Installation
 
-The easiest way to to install serial-port is using cake. Cake has great support for native dependencies and serial-port makes use of RxTx which requires native libraries. With cake, you just need to add serial-port to your list of dependencies in your project.clj and then run `cake deps`
+The easiest way to to install `serial-port` is requiring the [serial-port clojar](http://clojars.org/serial-port) in your `project.clj` and using cake [cake](http://clojure-cake.org/) to pull the dependencies. Cake has great support for native dependencies and the [serial-port clojar](http://clojars.org/serial-port) depends on the [rxtx22](http://clojars.org/rxtx22) clojar which packages the [RxTx](http://rxtx.qbang.org) native libraries.
+
+All this means you simply need to add `serial-port` to your list of dependencies in your `project.clj`:
 
     (defproject your-project "0.1.5"
       :description "Your fabulous project that uses a serial connection"
       :dependencies [[org.clojure/clojure "1.2.0"]
                      [serial-port "1.0.7"]])
 
-Where `1.0.7` is replaced with the version you wish to use.
+(Where `1.0.7` is replaced with the version you wish to use.)
+
+Then run `cake deps` and cake will pull the right dependencies (both native libs and jars) and put them in the right place for you to use with `cake repl` or `cake swank`.
 
 ## Usage
 
 ### Using the library
 
-Just make sure you pull in the serial-port namespace using something like:
+Just make sure you pull in the `serial-port` namespace using something like:
 
     (use 'serial-port)
 
 ### Finding your port identifier
 
-In order to connect to your serial device you need to know the path of the file it presents itself on. Serial-port provides a simple function to list these paths out:
+In order to connect to your serial device you need to know the path of the file it presents itself on. `serial-port` provides a simple function to list these paths out:
 
     => (list-ports)
 
@@ -74,7 +85,6 @@ There are a couple of convenience functions available if you're dealing with pla
 
     (write-int port 20)
     (write-int-seq port [20 10 2 100])
-
 
 ### Closing the port
 

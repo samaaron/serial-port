@@ -38,7 +38,7 @@
     (.close raw-port)))
 
 (defn open
-  "Returns an opened serial port. Allows you to specify the baud-rate.
+  "Returns an opened serial port. Allows you to specify the baud-rate (defaults to 115200).
   (open \"/dev/ttyUSB0\")
   (open \"/dev/ttyUSB0\" 9200)"
   ([path] (open path 115200))

@@ -11,7 +11,7 @@ A simple library for serial port communication with Clojure. Although serial com
 
 ## Installation
 
-The easiest way to to install `serial-port` is requiring the [serial-port clojar](http://clojars.org/serial-port) in your `project.clj` and using cake [cake](http://clojure-cake.org/) to pull the dependencies. Cake has great support for native dependencies and the [serial-port clojar](http://clojars.org/serial-port) depends on the [rxtx22](http://clojars.org/rxtx22) clojar which packages the [RxTx](http://rxtx.qbang.org) native libraries.
+The easiest way to to install `serial-port` is requiring the [serial-port clojar](http://clojars.org/serial-port) in your `project.clj` and using [cake](http://clojure-cake.org/) to pull the dependencies. Cake has great support for native dependencies and the [serial-port clojar](http://clojars.org/serial-port) depends on the [rxtx22 clojar](http://clojars.org/rxtx22) which packages the [RxTx native libraries](http://rxtx.qbang.org).
 
 All this means you simply need to add `serial-port` to your list of dependencies in your `project.clj`:
 

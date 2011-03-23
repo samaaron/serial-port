@@ -79,14 +79,14 @@
 (defn listen
   "Register a function to be called for every byte received on the specified port."
   ([port handler] (listen port handler true))
-  ([port handler skip-buffered]
+  ([port handler skip-buffered?]
      (let [raw-port  (:raw-port port)
            in-stream (:in-stream port)
            listener  (reify SerialPortEventListener
                        (serialEvent [_ event] (when (= SerialPortEvent/DATA_AVAILABLE (.getEventType event))
                                                 (handler in-stream))))]
 
-       (if skip-buffered
+       (if skip-buffered?
          (let [to-drop (.available in-stream)]
            (.skip in-stream to-drop)))
 
@@ -101,17 +101,17 @@
 (defn on-n-bytes
   "Partitions the incoming byte stream into seqs of size n and calls handler passing each partition."
   ([port n handler] (on-n-bytes port n handler true))
-  ([port n handler skip-buffered]
+  ([port n handler skip-buffered?]
      (listen port (fn [^InputStream in-stream]
                     (if (>= (.available in-stream) n)
                       (handler (doall (repeatedly n #(.read in-stream))))))
-             skip-buffered)))
+             skip-buffered?)))
 
 (defn on-byte
   "Calls handler for each byte received"
   ([port handler] (on-byte port handler true))
-  ([port handler skip-buffered]
+  ([port handler skip-buffered?]
      (listen port (fn [^InputStream in-stream]
                     (handler (.read in-stream)))
-             skip-buffered)))
+             skip-buffered?)))
 

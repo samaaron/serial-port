@@ -1,3 +1,21 @@
+
+                     ...88888888888888888888888888888888888...
+                   ... 08                                  80...
+                  ++..08   MMMMMMMMMMMMMMMMMMMMMMMMMMMMM    80..++
+           OOOOOOOO..08   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM   80..OOOOOOOO
+          O ,..      08  MMMMMMM  MMMMM  MMMM  MMMM  MMMMMM  80          O
+         O ,    `   08  MMMMMMM    MMM    MM    MM    MMMMMM  80   ,'''`  O
+        O ,  ++  `  08  MMMMMMMM  MMMMM  MMMM  MMMM  MMMMMMM  80  '  ++ `  O
+        O , ++++ ' 08  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM  80 ' ++++ ' O
+        O  . ++  ' 08  MMMMMM  MMMMM  MMMM  MMMM  MMMM  MMMMM  80  . ++  , O
+         O  ....' 08  MMMMMM    MMM    MM    MM    MM    MMMMM  80  ....' O
+          O       08  MMMMMMM  MMMMM  MMMM  MMMM  MMMM  MMMMMM  80       O
+           OOOOO..8    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    8..OOOOO
+               +.08     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM     80.+
+                  08                                            80
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 # serial-port
 
 A simple library for serial port communication with Clojure. Although serial communciation may be considered old tech, it's useful for a communicating with a plethora of devices including exciting new hardware such as the [Monome](http://monome.org) and the [Arduino](http://arduino.cc).
@@ -6,7 +24,7 @@ A simple library for serial port communication with Clojure. Although serial com
 
 `serial-port` has the following dependencies:
 
-* [Clojure 1.2](http://clojure.org)
+* [Clojure 1.2 or 1.3](http://clojure.org)
 * [RxTx](http://rxtx.qbang.org) (jar and native binary for your OS and CPU architecture)
 
 ## Installation
@@ -17,12 +35,12 @@ All this means you simply need to add `serial-port` to your list of dependencies
 
     (defproject your-project "0.1.5"
       :description "Your fabulous project that uses a serial connection"
-      :dependencies [[org.clojure/clojure "1.2.0"]
-                     [serial-port "1.0.7"]])
+      :dependencies [[org.clojure/clojure "1.3.0"]
+                     [serial-port "1.1.0"]])
 
-(Where `1.0.7` is replaced with the version you wish to use.)
+(Where `1.1.0` is replaced with the version you wish to use.)
 
-Then run `cake deps` and cake will pull the right dependencies (both native libs and jars) and put them in the right place for you to use with `cake repl` or `cake swank`.
+Then run `cake deps` and cake will pull the correct dependencies (both native libs and jars) and put them in the right place for you to use with `cake repl` or `cake swank`.
 
 ## Usage
 

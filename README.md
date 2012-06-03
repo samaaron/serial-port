@@ -65,6 +65,8 @@ In order to connect to your serial device you need to know the path of the file 
 
 In this case, we have an Arduino connected to `/dev/tty.usbmodemfa141`.
 
+See the troubleshooting part if your serial device does not appear.
+
 ### Connecting with a port identifier
 
 When you know the path to the serial port, connecting is just as simple as:
@@ -109,6 +111,22 @@ There are a couple of convenience functions available if you're dealing with pla
 Simply use the `close` function:
 
     (close port)
+
+## Troubleshooting
+
+At the moment, only problems on GNU/Linux ubuntu has been reported.
+
+### Ubuntu Linux
+
+From ubuntu linux 11.04 and forward, you may not see your device.
+The RXTX library searches for serial ports with the `/dev/ttySxx` naming convention.
+Your device may be called `/dev/ttyACM0` and so it is not found.
+
+Just create a symbolic link with a good name, so for example:
+
+    sudo ln -s /dev/ttyACM0 /dev/ttyS10
+
+src: http://rxtx.qbang.org/wiki/index.php/Discovering_comm_ports
 
 ## Contributors
 

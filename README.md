@@ -71,9 +71,14 @@ From ubuntu linux 11.04 and forward, you may not see your device.
 The RXTX library searches for serial ports with the `/dev/ttySxx` naming convention.
 Your device may be called `/dev/ttyACM0` and so is not found.
 
-Just create a symbolic link with a good name, so for example:
+From the repl point of view, you could make your system aware of it:
 
-    sudo ln -s /dev/ttyACM0 /dev/ttyS10
+    (System/setProperty "gnu.io.rxtx.SerialPorts" "/dev/ttyACM0")
+
+From the OS point of view:
+You could create a symbolic link with a name that satisfies this, so for example:
+
+    sudo ln -s /dev/ttyACM0 /dev/ttyS42
 
 src: http://rxtx.qbang.org/wiki/index.php/Discovering_comm_ports
 

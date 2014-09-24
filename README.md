@@ -94,11 +94,11 @@ However, you'll want to bind the result so you can use it later:
 
 ### Reading bytes
 
-The simplest way to read bytes from the connection is to use `on-byte`. This allows you to register a hander fn which will be called for each byte received. So, to print out each byte just do the following:
+The simplest way to read bytes from the connection is to use `on-byte`. This allows you to register a handler fn which will be called for each byte received. So, to print out each byte just do the following:
 
     (on-byte port #(println %))
 
-It's also possible to register a handler for every n bytes. The monome communicates by sending pairs of bytes, one byte to describe whether a button was pressed or released, and another to describe the coordinates of the button. You can register a hander to receive pairs of bytes as follows:
+It's also possible to register a handler for every n bytes. The monome communicates by sending pairs of bytes, one byte to describe whether a button was pressed or released, and another to describe the coordinates of the button. You can register a handler to receive pairs of bytes as follows:
 
     (on-n-bytes port 2 (fn [[action coords]] ...))
 
